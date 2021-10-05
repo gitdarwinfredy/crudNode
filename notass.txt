@@ -1,0 +1,12 @@
+cdnjs.com
+https://cdnjs.com/libraries
+Font awesome
+https://fontawesome.com/v6.0/icons?s=solid,brands
+square-plus icono
+plus- edit trash
+
+
+https://sweetalert2.github.io/
+instalacion  jsdelivr CDN  copiar el html
+se crea dentro del body
+<script>
