@@ -45,7 +45,7 @@
 
     <div class="container">
         <a href="/create" class="btn btn-outline-primary mt-4"><i class="fa-solid fa-plus"></i></a>
-        <table id="users" class="table table-bordered table-striped align-text-bottom mt-4">
+        <table id="users"  class="table table-bordered table-striped align-text-bottom mt-4">
             <thead>
                 <tr class="bg-primary text-white">
                     <th scope="col">ID</th>  
@@ -55,6 +55,19 @@
                 </tr>
             </thead>            
             <tbody>
+                <% results.forEach((user)=> { %>
+                
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.user %></td>
+                    <td><%= user.rol %></td>
+                    <td>
+                        <a href="/edit/<%= user.id %>" class="btn btn-outline-info"><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a onclick="confirmar(<%= user.id %>)" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                        
+                    </td>
+                </tr>
+            <% })  %>  
             </tbody>
         </table>
     </div>  
@@ -68,28 +81,8 @@
     
     <script>
       $(document).ready(function() {
-      $('#users').DataTable({
-        ajax: {
-          url:"/data",
-          dataSrc: ""
-          },
-          columns:[
-            {data: "id"},
-            {data: "user"},
-            {data: "rol"},
-            {data: null,
-              "render": function(data){
-                return '<a href="/edit/'+data.id+'"class="btn btn-outline-info"><i class="fa-regular fa-pen-to-square"></i></a><a onclick="confirmar('+data.id+')" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>'
-              }
-            },
-
-          ],
-          pageLength: 8,
-          lengthMenu:[[5,10,20,-1],[5,10,20,'Todos']],
-          
-
-      });
-      });
+      $('#users').DataTable();
+      } );
       function confirmar(id){
         Swal.fire({
             title: '¿Confirma eliminar el registro?',

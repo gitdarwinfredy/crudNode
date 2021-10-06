@@ -4,6 +4,7 @@ const router = express.Router();
 
 const conexion = require('./database/db')
 
+// Mostrar todos los registros
 router.get('/',(req, res)=>{
     
     conexion.query('SELECT * FROM users ', (error, results)=>{
@@ -16,6 +17,21 @@ router.get('/',(req, res)=>{
  })
 })
 
+router.get('/data',(req, res)=>{
+    
+    conexion.query('SELECT * FROM users ', (error, results)=>{
+        if(error){
+         throw error;
+
+        } else{
+            data = JSON.stringify(results);
+            res.send(data);
+        }
+ })
+})
+
+
+//Ruta para crear Registros
 router.get('/create', (req, res)=> {
     res.render('create.ejs');
 })

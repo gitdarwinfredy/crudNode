@@ -10,3 +10,19 @@ https://sweetalert2.github.io/
 instalacion  jsdelivr CDN  copiar el html
 se crea dentro del body
 <script>
+
+https://datatables.net/
+
+<!--estilos para datatables para boostrap 5 dentro del body-->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+
+<!--datatables Bootstrap CSS dentro del head-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+<!--dentro de la funcion sweet alert-->
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
